@@ -11,13 +11,30 @@ class App extends Component {
                 <nav className="nav">
                     <ul>
                         <li>
-                            <NavLink to="/">Home</NavLink>
+                            <NavLink
+                                exact //use precise address
+                                activeClassName={"wfm-active "}
+                                to="/"
+                            >
+                                Home
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/about">About</NavLink>
+                            <NavLink to="/about" activeStyle={{ color: " " }}>
+                                About
+                            </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/cars">Cars</NavLink>
+                            <NavLink
+                                to={{
+                                    // parameters for address line
+                                    pathname: "/cars",
+                                    search: "?a=1&b=2",
+                                    hash: "wfm-hash",
+                                }}
+                            >
+                                Cars
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>
