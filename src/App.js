@@ -27,10 +27,8 @@ class App extends Component {
                         <li>
                             <NavLink
                                 to={{
-                                    // parameters for address line
+                                    // parameters for address line(static routing)
                                     pathname: "/cars",
-                                    search: "?a=1&b=2",
-                                    hash: "wfm-hash",
                                 }}
                             >
                                 Cars
