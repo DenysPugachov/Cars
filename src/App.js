@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.scss";
-import { Route, NavLink } from "react-router-dom"; //for register different rout in React App
+import { Route, NavLink, Switch, Redirect } from "react-router-dom"; //for register different rout in React App
 import About from "./About/About";
 import Cars from "./Cars/Cars";
+import CarDetail from "./CarDetail/CarDetail";
 
 class App extends Component {
     render() {
@@ -38,12 +39,24 @@ class App extends Component {
                 </nav>
 
                 <hr />
-
                 {/*localhost:3000*/}
-                {/* exect => use for precise address (localhost:3000) */}
-                <Route path="/" exact render={() => <h1>Home page</h1>} />
-                <Route path="/about" component={About} />
-                <Route path="/cars" component={Cars} />
+                {/* exact => use for precise address (localhost:3000) */}
+                {/* switch => return first component form route address(exact) */}
+                <Switch>
+                    {/* <Route path="/" exact render={() => <h1>Home page</h1>} /> */}
+                    <Route path="/" exact render={() => <h1> Home page</h1>} />
+                    <Route path="/about" component={About} />
+                    <Route path="/cars/:name" component={CarDetail} />
+                    <Route path="/cars" component={Cars} />
+                    <Redirect to={"/"} />
+                    {/* <Route
+                        render={() => (
+                            <h1 style={{ color: "red", textAlign: "center" }}>
+                                404 page not found
+                            </h1>
+                        )}
+                    /> */}
+                </Switch>
             </div>
         );
     }
